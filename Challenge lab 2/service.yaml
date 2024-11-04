@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: static-web-service
+spec:
+  selector:
+    app: static-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30008   # Bạn có thể chọn số khác trong khoảng từ 30000-32767
+  type: NodePort
