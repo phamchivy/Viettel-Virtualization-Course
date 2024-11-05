@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-web-2-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: static-web-2
+  template:
+    metadata:
+      labels:
+        app: static-web-2
+    spec:
+      containers:
+        - name: static-web-2
+          image: my-static-web-2:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
