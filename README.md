@@ -35,7 +35,7 @@ Triển Khai Ứng Dụng Web Tĩnh lên Kubernetes
 
 ##### - Phân tích:
 ![Mô tả hình ảnh](images/Challenge%202/diagram_2.png)
-#### - Hướng dẫn triển khai:
+##### - Hướng dẫn triển khai:
 1. **Đóng Gói Container Web Tĩnh**
 - Tải một template web tĩnh từ [Free CSS Templates](https://www.free-css.com/free-css-templates).
 - Sử dụng base image là `nginx` để phục vụ các file web tĩnh.
