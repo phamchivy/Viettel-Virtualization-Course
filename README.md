@@ -21,8 +21,8 @@ Triển khai một `Deployment` chạy `nginx` trên Kubernetes và cấu hình 
 4. **Thực hiện `curl` đến `http://<NodeIP>:<NodePort>` để kiểm tra trang web mặc định của `nginx`**
 
 ##### - Kết quả:
-![Mô tả hình ảnh](images/Challenge%201/code_1.jpg)
-![Mô tả hình ảnh](images/Challenge%201/result_1.jpg)
+![Mô tả hình ảnh](images/Challenge%201/code_1.png)
+![Mô tả hình ảnh](images/Challenge%201/result_1.png)
 ## Challenge 2
 ![Mô tả hình ảnh](images/Challenge%202/diagram_2.png)
 ![Mô tả hình ảnh](images/Challenge%202/code_2.png)
