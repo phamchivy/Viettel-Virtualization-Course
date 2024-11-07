@@ -42,12 +42,14 @@ Bài tập yêu cầu triển khai một **nginx-proxy** đóng vai trò là pro
 2. Tạo một **nginx-proxy** sử dụng Nginx để chuyển tiếp yêu cầu từ các path `/web1` và `/web2` tới các ứng dụng web tương ứng.
 3. Kiểm tra lại bằng cách sử dụng các lệnh `curl` để chắc chắn rằng các ứng dụng có thể truy cập được thông qua Nginx Proxy.
 ##### - Phân tích:
-![Mô tả hình ảnh](images/Challenge%201/diagram_1.png)
+![Mô tả hình ảnh](images/Challenge%203/diagram_3.png)
 ##### - Hướng dẫn triển khai:
 1. Tạo **Service** cho Web 1 và Web 2 với loại `ClusterIP`.
 2. Sử dụng Docker để build và tạo một image cho ứng dụng `nginx-proxy`.
 3. Tạo **Deployment** cho `nginx-proxy` và một **Service** loại `NodePort` để có thể truy cập từ bên ngoài.
 4. Kiểm tra kết quả bằng cách sử dụng các lệnh `curl`.
 ##### - Kết quả:
-![Mô tả hình ảnh](images/Challenge%201/code_1.png)
-![Mô tả hình ảnh](images/Challenge%201/result_1.png)
+![Mô tả hình ảnh](images/Challenge%203/curl_1.png)
+![Mô tả hình ảnh](images/Challenge%203/curl_2.png)
+![Mô tả hình ảnh](images/Challenge%203/web1.png)
+![Mô tả hình ảnh](images/Challenge%203/web2.png)
