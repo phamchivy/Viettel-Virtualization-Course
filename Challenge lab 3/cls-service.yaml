@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web2-service
+spec:
+  selector:
+    app: static-web-2
+  type: ClusterIP  
+  ports:
+    - port: 80
+      targetPort: 80
