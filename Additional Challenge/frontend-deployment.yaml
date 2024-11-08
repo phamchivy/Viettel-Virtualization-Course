@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend-container
+        image: frontend-image:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80  # Cổng ứng dụng bên trong container
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+spec:
+  type: NodePort
+  selector:
+    app: frontend
+  ports:
+  - protocol: TCP
+    port: 80        # Cổng bên trong container
+    targetPort: 80  # Cổng trong container (phải trùng với containerPort)
+    nodePort: 30010 # Cổng để truy cập từ ngoài Minikube (30000-32767)

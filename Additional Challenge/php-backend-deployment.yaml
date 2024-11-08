@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-backend
+  template:
+    metadata:
+      labels:
+        app: php-backend
+    spec:
+      containers:
+      - name: php-backend
+        image: php-backend:latest  # Sử dụng image vừa build
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80

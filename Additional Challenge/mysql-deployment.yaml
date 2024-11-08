@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.7  # Sử dụng MySQL phiên bản 5.7
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "1"  # Mật khẩu root cho MySQL
+        - name: MYSQL_DATABASE
+          value: "shop_db"  # Tạo cơ sở dữ liệu mặc định
+        - name: MYSQL_USER
+          value: "user_1"  # Tạo người dùng mặc định
+        - name: MYSQL_PASSWORD
+          value: "1"  # Mật khẩu cho người dùng mặc định
+        ports:
+        - containerPort: 3306  # Cổng MySQL
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-storage
+        emptyDir: {}  # Dung lượng lưu trữ tạm thời cho MySQL
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+spec:
+  selector:
+    app: mysql
+  ports:
+    - port: 3306
+      targetPort: 3306
+  clusterIP: None  # Thiết lập ClusterIP là None để cho phép các pod khác kết nối trực tiếp
